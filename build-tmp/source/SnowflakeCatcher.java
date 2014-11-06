@@ -1,5 +1,21 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class SnowflakeCatcher extends PApplet {
+
 SnowFlake [] snow;
-void setup()
+public void setup()
 {
  size(530,530); 
  background(0);
@@ -9,7 +25,7 @@ void setup()
     snow[i] = new SnowFlake();
   }
 }
-void draw()
+public void draw()
 {
   //your code here
   for (int i = 0; i <snow.length; i++)
@@ -20,13 +36,13 @@ void draw()
     snow[i].erase();
   }
 }
-void mouseDragged()
+public void mouseDragged()
 {
    noStroke();
    fill(255,255,255);
    ellipse(pmouseX,pmouseY,20,20);
 }
-void mousePressed()
+public void mousePressed()
    {
       noStroke();
       fill(0);
@@ -43,7 +59,7 @@ class SnowFlake
     siz = (int)(Math.random()*3)+3;
     isMoving = false;
   }
-  void show()
+  public void show()
   {
     int outline = (int)(Math.random()*255);
     int siz1=siz;
@@ -56,24 +72,24 @@ class SnowFlake
    // fill(255,0,0);
     //point(x,y);
   }
-  void erase()
+  public void erase()
   {
     fill(0);
     noStroke();
-    ellipse(x,y-4.5,6,6);
+    ellipse(x,y-4.5f,6,6);
   }
-  void move()
+  public void move()
   {
     if(y<580)
     {
-      y+=2.5;
+      y+=2.5f;
     }
     if (get(x,y+3) != color(0))
     {
       y=y-y;
     }
   }
-  void wrap()
+  public void wrap()
   //char dot = point(x,y+8);
   {
     if(y>530)
@@ -84,3 +100,12 @@ class SnowFlake
 }
 
 
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "SnowflakeCatcher" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
+}
