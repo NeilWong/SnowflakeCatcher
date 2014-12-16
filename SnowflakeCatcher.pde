@@ -58,13 +58,13 @@ class SnowFlake
   {
     fill(0);
     noStroke();
-    ellipse(x,y-4,6,6);
+    ellipse(x,y-5,6,6);
   }
   void move()
   {
     if(y<580)
     {
-      y+=2.5;
+      y+=3;
     }
     if (get(x,y+3) != color(0))
     {
