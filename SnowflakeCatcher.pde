@@ -11,7 +11,7 @@ void setup()
 }
 void draw()
 {
-  //your code here
+  
   for (int i = 0; i <snow.length; i++)
   {
     snow[i].move();
@@ -34,7 +34,7 @@ void mousePressed()
    }
 class SnowFlake
 {
-  //class member variable declarations
+  
   int x; int y; int siz; boolean isMoving;
   {
     // classmember variable initializations
@@ -53,14 +53,12 @@ class SnowFlake
       fill(255,255,255);
       ellipse(x,y,siz,siz1);
     }
-   // fill(255,0,0);
-    //point(x,y);
   }
   void erase()
   {
     fill(0);
     noStroke();
-    ellipse(x,y-4.5,6,6);
+    ellipse(x,y-4,6,6);
   }
   void move()
   {
