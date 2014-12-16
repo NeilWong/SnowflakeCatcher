@@ -2,7 +2,7 @@ SnowFlake [] snow;
 void setup()
 {
  size(530,530); 
- background(2);
+ background(0);
   snow = new SnowFlake[53];
   for (int i = 0; i<snow.length;i++)
   {
@@ -58,20 +58,21 @@ class SnowFlake
   {
     fill(0);
     noStroke();
-    ellipse(x,y-5,6,6);
+    ellipse(x,y-4,6,6);
   }
   void move()
   {
     if(y<580)
     {
-      y+=3;
+      y+=2.5;
     }
-    if (get(x,y+3) > color(0))
+    if (get(x,y+3) != color(0))
     {
       y=y-y;
     }
   }
   void wrap()
+  //char dot = point(x,y+8);
   {
     if(y>530)
     {
@@ -79,5 +80,3 @@ class SnowFlake
       x=(int)(Math.random()*530);
     }  }
 }
-
-
